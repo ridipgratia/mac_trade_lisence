@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 require __DIR__ . './ridip_routes.php';
+require __DIR__ . './dipankor_routes.php';
