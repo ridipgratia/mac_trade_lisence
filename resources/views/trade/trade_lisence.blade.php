@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Trade Lisence')
 @section('css_link')
-    <link rel="stylesheet" href="{{ asset('css/trade/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/trade/trade.css') }}">
 @endsection
 @section('content')
     <div class="d-flex flex-wrap main-trade-links-div">
