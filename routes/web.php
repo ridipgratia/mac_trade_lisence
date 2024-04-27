@@ -17,4 +17,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-require __DIR__ . './ridip_routes.php';
+// ------------------------ trade routes -------------------
+
+Route::prefix('trade')->group(function () {
+    require __DIR__ . './ridip_routes.php';
+});

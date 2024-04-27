@@ -5,4 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 // ------------------- trade lisence routes --------------------
 // ---------------- trade lisence index page -----------------
-Route::get('/trade', [TradeLisenceController::class, 'index']);
+Route::get('/trade-page', [TradeLisenceController::class, 'index']);
+// ----------------- add trade linsence index page  --------------
+
+Route::get('/add-trade', [TradeLisenceController::class, 'addTrade']);

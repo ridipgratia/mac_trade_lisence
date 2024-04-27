@@ -1,0 +1,17 @@
+@media(max-width:700px) {
+    .trade-head-text {
+        display: none !important;
+    }
+}
+
+@media(max-width:700px) {
+    .main-trade-nav {
+        justify-content: flex-start !important;
+    }
+}
+
+@media(max-width:350px) {
+    .header-img img {
+        height: 40px;
+    }
+}

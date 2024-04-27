@@ -12,4 +12,9 @@ class TradeLisenceController extends Controller
     {
         return view('trade.trade_lisence');
     }
+    // ---------------------  add trade lisence index page ------------------------
+    public function addTrade(Request $request)
+    {
+        return view('trade.add_trade_lisence');
+    }
 }

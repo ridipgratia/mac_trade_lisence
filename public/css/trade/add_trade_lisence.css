@@ -1,0 +1,91 @@
+:root {
+    --shadow: 0px 0px 0px -3px rgba(0, 0, 0, 0.1), 0px 0px 15px -3px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
+    --para-font-1: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.main-add-trade-form {
+    margin: 20px 0px;
+    justify-content: center;
+}
+
+.add-trade-form {
+    border-radius: 7px;
+    box-shadow: var(--shadow);
+    flex-direction: column;
+    flex-flow: column;
+    background-color: #F6F7F8;
+    margin: 20px 0px;
+
+}
+
+.add-trade-form-head {
+    margin: 10px 0px;
+    gap: 10px;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.add-trade-form-head span {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: var(--para-font-1);
+    text-transform: uppercase;
+}
+
+.add-trade-form-head span:first-child {
+    font-size: 20px;
+}
+
+.add-trade-form-body {
+    align-items: flex-start;
+    background: #FFFFFF;
+    padding: 10px 10px;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.add-trade-form-body-1 {
+    align-items: flex-start;
+
+}
+
+.add-trade-form-body-1 p {
+    font-family: var(--para-font-1);
+    font-size: 14px;
+    margin: 7px 0px;
+    font-weight: bold;
+}
+
+.add-trade-form-body-1 input,
+select,
+textarea {
+    font-size: 16px;
+    font-family: var(--para-font-1);
+    outline: none;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 7px 5px;
+    resize: none;
+}
+
+.add-trade-form-body-1 textarea {
+    height: 80px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.add-trade-form-body-1 input:focus {
+    border: 2px solid lightblue;
+}
+
+.add-trade-form-body-1 textarea:focus {
+    border: 2px solid lightblue;
+}
+
+.add-trade-form-body-1 select {
+    cursor: pointer;
+}
+
+.add-trade-file {
+    margin: 10px 0px;
+}
