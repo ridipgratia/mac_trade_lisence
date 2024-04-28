@@ -9,3 +9,4 @@ Route::get('/trade-page', [TradeLisenceController::class, 'index']);
 // ----------------- add trade linsence index page  --------------
 
 Route::get('/add-trade', [TradeLisenceController::class, 'addTrade']);
+Route::get('/temp-file',[TradeLisenceController::class, 'tempFile']);

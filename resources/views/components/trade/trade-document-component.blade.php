@@ -21,4 +21,10 @@
             </div>
         </div>
     </div>
+    <div class="col-12">
+        <div id="drop-area">
+            Drop files here
+        </div>
+        <input type="hidden" id="file-input">
+    </div>
 </div>

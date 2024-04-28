@@ -17,4 +17,7 @@ class TradeLisenceController extends Controller
     {
         return view('trade.add_trade_lisence');
     }
+    public function tempFile(Request $request){
+        return view('temp_file_upload');
+    }
 }
