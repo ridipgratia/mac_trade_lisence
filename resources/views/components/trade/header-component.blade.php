@@ -1,10 +1,10 @@
-<div class="container border">
-    <div class="d-flex flex-wrap col-12 main-trade-nav">
-        <div class="col-5 col-md-7 header-img">
+<div class="container">
+    <div class="d-flex flex-wrap col-12 main-trade-nav justify-content-center">
+        <div class="col-7 col-md-7 header-img justify-content-center ">
             <img src="/img/gmc.svg" alt="img">
         </div>
 
-        <div class="d-flex flex-wrap col-5 col-md-4 trade-head-text">
+        <div class="d-flex flex-wrap col-md-4 trade-head-text ">
             <span><i class="fa-regular fa-envelope"></i></span>
             <p class="text-dark">example@gmail.com</p>
         </div>
