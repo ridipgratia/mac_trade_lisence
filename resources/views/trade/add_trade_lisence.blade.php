@@ -19,6 +19,9 @@
             <x-trade.trade-identify-component></x-trade.trade-identify-component>
             {{-- ------------------- upload document --------------- --}}
             <x-trade.trade-document-component></x-trade.trade-document-component>
+            {{-- ------------------------------ trade declaration------------------------- --}}
+            <x-trade.trade-declaration-component></x-trade.trade-declaration-component>
+
         </form>
     </div>
 @endsection
