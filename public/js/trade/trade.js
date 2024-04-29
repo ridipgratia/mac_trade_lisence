@@ -34,5 +34,10 @@ $(document).ready(function () {
     $(document).on('submit', '#add-trade-form', async function (e) {
         e.preventDefault();
         trade_module.validateAllField();
-    })
+    });
+    // --------------- check phone number for otp -----------------
+    $(document).on('click','#send_trade_otp',function(){
+        var number=$('#trade-content-phone').val();
+        trade_module.checkTradePhone(number);
+    });
 });

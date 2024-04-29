@@ -5,7 +5,7 @@
 @endsection
 @section('content')
     <div class="d-flex flex-wrap main-add-trade-form col-12">
-        <form action="" id="add-trade-form" class="d-flex flex-wrap col-12">
+        <form action="" id="add-trade-form" class="d-flex flex-wrap col-11">
             @csrf
             {{-- ------------------- trade owner persoanl details -------------------- --}}
             <x-trade.trade-owner-details-conponent></x-trade.trade-owner-details-conponent>
