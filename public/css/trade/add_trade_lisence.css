@@ -89,4 +89,17 @@ textarea {
 .add-trade-file {
     margin: 10px 0px;
     padding: 30px 5px;
+    justify-content: center;
+    background: #e2e3e4;
+    border-radius: 7px;
+}
+
+.add-trade-file span:last-child {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+
+.add-trade-file input {
+    display: none;
 }

@@ -22,3 +22,6 @@
         </form>
     </div>
 @endsection
+@section('js_link')
+    <script type="module" src="{{ asset('js/trade/trade.js') }}"></script>
+@endsection

@@ -8,9 +8,9 @@
             <p class="col-12">Identity Proof</p>
             <span>Allowed documents are Pan card, Election/Voter card, Driving License, Aadhar card. Please upload a JPG
                 or PNG image, ensuring that it does not exceed 500KB in size.</span>
-            <div class="d-flex flex-wrap col-12 add-trade-file">
-                <p><span>Drag & Drop File</span><span>Browse</span></p>
-                <input type="file" name="aadhaar_no" class="col-12">
+            <div class="d-flex flex-wrap col-12 add-trade-file" id="identity_proof_div">
+                <p><span>Drag & Drop File</span> <span>Browse</span></p>
+                <input type="file" name="identity_proof" class="col-12" id="identity_proof_id">
             </div>
         </div>
         <div class="d-flex flex-wrap col-11 col-md-4 add-trade-form-body-1">
@@ -18,7 +18,8 @@
             <span>Allowed documents are Please upload a JPG or PNG image, ensuring that it does not exceed 500KB in
                 size.</span>
             <div class="d-flex flex-wrap col-12 add-trade-file">
-                <input type="text" name="pan_no" class="col-12">
+                <p><span>Drag & Drop File</span> <span>Browse</span></p>
+                <input type="file" name="address_proof" class="col-12">
             </div>
         </div>
     </div>
