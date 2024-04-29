@@ -23,7 +23,8 @@
     <div class="d-flex flex-wrap px-3 bg-white">
         <div class="" style="list-style: none;font-weight:400;">
             <li class="d-flex f-list my-3">
-                <input class="checkmark" type="checkbox"><span class="mx-2 fw-bold">I hereby declare that</span>
+                <input class="checkmark" type="checkbox" id="trade-checkout"><span class="mx-2 fw-bold">I hereby declare
+                    that</span>
 
             </li>
             <p>

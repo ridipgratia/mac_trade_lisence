@@ -6,11 +6,13 @@
     <div class="d-flex flex-wrap add-trade-form-body col-12">
         <div class="d-flex flex-wrap col-11 col-md-3 add-trade-form-body-1 ">
             <p class="col-12">AADHAAR No</p>
-            <input type="text" name="aadhaar_no" class="col-12">
+            <input type="text" name="aadhaar_no" class="col-12 trade-input-name">
+            <p class="trade_error"></p>
         </div>
         <div class="d-flex flex-wrap col-11 col-md-3 add-trade-form-body-1">
             <p class="col-12">PAN NO</p>
-            <input type="text" name="pan_no" class="col-12">
+            <input type="text" name="pan_no" class="col-12 trade-input-name">
+            <p class="trade_error"></p>
         </div>
     </div>
 </div>

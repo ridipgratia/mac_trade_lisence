@@ -94,12 +94,25 @@ textarea {
     border-radius: 7px;
 }
 
-.add-trade-file span:last-child {
+.add-trade-file button {
     text-decoration: underline;
+    border: none;
+    outline: none;
     color: blue;
     cursor: pointer;
+    background: transparent;
 }
 
 .add-trade-file input {
     display: none;
+}
+
+.add-trade-file-hover {
+    border: 2px dotted #007bff;
+}
+
+.trade_error {
+    color: red;
+    font-size: 13px !important;
+    text-transform: capitalize;
 }
