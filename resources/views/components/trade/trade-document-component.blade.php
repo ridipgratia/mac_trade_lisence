@@ -9,7 +9,8 @@
             <span>Allowed documents are Pan card, Election/Voter card, Driving License, Aadhar card. Please upload a JPG
                 or PNG image, ensuring that it does not exceed 500KB in size.</span>
             <div class="d-flex flex-wrap col-12 add-trade-file">
-                <input type="text" name="aadhaar_no" class="col-12">
+                <p><span>Drag & Drop File</span><span>Browse</span></p>
+                <input type="file" name="aadhaar_no" class="col-12">
             </div>
         </div>
         <div class="d-flex flex-wrap col-11 col-md-4 add-trade-form-body-1">
@@ -20,11 +21,5 @@
                 <input type="text" name="pan_no" class="col-12">
             </div>
         </div>
-    </div>
-    <div class="col-12">
-        <div id="drop-area">
-            Drop files here
-        </div>
-        <input type="hidden" id="file-input">
     </div>
 </div>
