@@ -118,13 +118,15 @@ textarea {
     font-size: 13px !important;
     text-transform: capitalize;
 }
-.add-trade-contact{
+
+.add-trade-contact {
     gap: 20px;
     align-items: flex-start;
 }
 
 .add-trade-contact-btn {
     font-size: 16px;
+    width: 160px;
     padding: 7px 20px;
     border-radius: 5px;
     font-family: var(--para-font-1);
