@@ -1,6 +1,10 @@
 :root {
-    --shadow: 0px 0px 0px -3px rgba(0, 0, 0, 0.1), 0px 0px 15px -3px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
-    --para-font-1: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --shadow: 0px 0px 0px -3px rgba(0, 0, 0, 0.1),
+        0px 0px 15px -3px rgba(0, 0, 0, 0.1),
+        0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0px 0px 15px -3px rgba(0, 0, 0, 0.1);
+    --para-font-1: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
 }
 
 .main-add-trade-form {
@@ -13,9 +17,8 @@
     box-shadow: var(--shadow);
     flex-direction: column;
     flex-flow: column;
-    background-color: #F6F7F8;
+    background-color: #f6f7f8;
     margin: 20px 0px;
-
 }
 
 .add-trade-form-head {
@@ -38,7 +41,7 @@
 
 .add-trade-form-body {
     align-items: flex-start;
-    background: #FFFFFF;
+    background: #ffffff;
     padding: 10px 10px;
     justify-content: space-around;
     gap: 10px;
@@ -46,7 +49,6 @@
 
 .add-trade-form-body-1 {
     align-items: flex-start;
-
 }
 
 .add-trade-form-body-1 p {
@@ -116,23 +118,24 @@ textarea {
     font-size: 13px !important;
     text-transform: capitalize;
 }
-.add-trade-contact{
+.add-trade-contact {
     gap: 20px;
     align-items: flex-start;
 }
 
-.add-trade-contact-btn{
+.add-trade-contact-btn {
     font-size: 16px;
+    width: 150px;
     padding: 7px 20px;
-    border-radius: 7px;
+    border-radius: 5px;
     font-family: var(--para-font-1);
     border: none;
     outline: none;
-    background: #157184;
+    background: green;
     cursor: pointer;
     color: white;
 }
 
-.trade-otp-div{
+.trade-otp-div {
     display: none !important;
 }

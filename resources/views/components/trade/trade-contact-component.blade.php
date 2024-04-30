@@ -23,7 +23,7 @@
                     <input type="number" name="mobile_number" class="col-12" id="trade-contact-otp">
                     <p class="trade-contact-error"></p>
                 </div>
-                <button type="button" class="add-trade-contact-btn" id="send_trade_otp">Verify OTP</button>
+                <button type="button" class="add-trade-contact-btn" id="send_trade_otp_verify">Verify OTP</button>
             </div>
         </div>
     </div>
