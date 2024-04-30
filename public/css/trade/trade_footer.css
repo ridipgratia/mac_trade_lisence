@@ -1,0 +1,27 @@
+.footer-div {
+    background-color: #212E34;
+    margin: 10px 0px;
+    align-items: center;
+    padding: 20px 0px;
+    gap: 20px;
+    border-radius: 7px;
+}
+
+.footer-div-1 p {
+    font-size: 15px;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 0px !important;
+    margin: 0px !important;
+    text-align: center;
+
+}
+
+.footer-div-1 span {
+    color: lightblue;
+}
+
+.footer-location-div p:nth-child(1) {
+    font-weight: bold;
+    font-size: 20px;
+}

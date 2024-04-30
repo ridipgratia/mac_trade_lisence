@@ -116,12 +116,13 @@ textarea {
     font-size: 13px !important;
     text-transform: capitalize;
 }
-.add-trade-contact{
+
+.add-trade-contact {
     gap: 20px;
     align-items: flex-start;
 }
 
-.add-trade-contact-btn{
+.add-trade-contact-btn {
     font-size: 16px;
     padding: 7px 20px;
     border-radius: 7px;
@@ -133,6 +134,27 @@ textarea {
     color: white;
 }
 
-.trade-otp-div{
+.trade-otp-div {
     display: none !important;
+}
+
+.add-trade-back-div {
+    margin: 10px 0px;
+}
+
+.add-trade-back-div a {
+    font-size: 14px;
+    font-family: var(--para-font-1);
+    border: 2px solid #157184;
+    padding: 8px 40px;
+    cursor: pointer;
+    border-radius: 7px;
+    background: transparent;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.add-trade-back-div a span {
+    color: #157184;
 }
