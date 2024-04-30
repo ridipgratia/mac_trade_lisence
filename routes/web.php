@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-require __DIR__ . './ridip_routes.php';
-require __DIR__ . './dipankor_routes.php';
+require __DIR__ . '/ridip_routes.php';
+require __DIR__ . '/dipankor_routes.php';
 // ------------------------ trade routes -------------------
 
-Route::prefix('trade')->group(function () {
-    require __DIR__ . './ridip_routes.php';
-});
+// Route::prefix('trade')->group(function () {
+//     require __DIR__ . '/ridip_routes.php';
+// });
