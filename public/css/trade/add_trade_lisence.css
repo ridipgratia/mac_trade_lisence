@@ -36,6 +36,18 @@
 }
 
 .add-trade-form-head span:first-child {
+    color: white;
+    width: 36px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    font-size: 16px !important;
+    justify-content: center;
+    align-items: center;
+    background-color: #157184;
+}
+
+.add-trade-form-head span:first-child {
     font-size: 20px;
 }
 

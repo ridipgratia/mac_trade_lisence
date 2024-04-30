@@ -17,7 +17,7 @@
         </div>
         <div class="d-flex flex-wrap col-11 col-md-3 add-trade-form-body-1">
             <p class="col-12">Nature of Trade</p>
-            <input type="text" name="nature_of_trade" class="col-12 trade-input-name">
+            <input type="text" name="nature_of_trade" class="col-12 trade-input-name" placeholder="nature of trade">
             <p class="trade_error"></p>
         </div>
         <div class="d-flex flex-wrap col-11 col-md-3 add-trade-form-body-1">

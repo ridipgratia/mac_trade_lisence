@@ -38,11 +38,6 @@ $(document).ready(function () {
     // --------------- check phone number for otp -----------------
     $(document).on('click', '#send_trade_otp', function () {
         var number = $('#trade-content-phone').val();
-        if (number.length == 10) {
-                $('#send_trade_otp').html(`<i class="fa fa-spinner fa-spin"></i>`)
-        } else {
-            $('#send_trade_otp').attr('disable');
-        }
         trade_module.checkTradePhone(number);
     });
     // -----------------verify otp -----------------------

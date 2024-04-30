@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{ asset('css/trade/trade.css') }}">
 @endsection
 @section('content')
-    <div class="" style="height: 200px;"">
+    <div class="" style="height: calc(340px);"">
 
     </div>
     <div class="d-flex flex-wrap main-trade-links-div">

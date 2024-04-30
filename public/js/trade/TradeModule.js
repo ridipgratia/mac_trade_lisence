@@ -108,7 +108,7 @@ class TradeModule {
                             .attr("name")
                             .replaceAll("_", " ")} is required field !`
                     );
-                    check_validate=false;
+                check_validate = false;
             }
         }
         if (check_validate) {
@@ -166,9 +166,15 @@ class TradeModule {
             var regex = /^\d{10}$/;
             if (regex.test(number)) {
                 $('.trade-otp-div').eq(0).attr({
-                    'style':'display:flex !important'
+                    'style': 'display:flex !important'
                 });
+                $('#send_trade_otp').html(`<i class="fa fa-spinner fa-spin"></i>`)
+                $('#send_trade_otp').attr('disabled', true);
                 $(".trade-contact-error").eq(0).html("");
+                setTimeout(function () {
+                    $('#send_trade_otp').html(`Send OTP`);
+                    $('#send_trade_otp').attr('disabled', false);
+                }, 1000)
             } else {
                 $(".trade-contact-error").eq(0).html("Enter a valid phone number !");
             }
