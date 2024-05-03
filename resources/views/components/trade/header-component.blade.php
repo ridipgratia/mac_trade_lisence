@@ -6,7 +6,7 @@
 
         <div class="d-flex flex-wrap col-md-4 trade-head-text ">
             <span><i class="fa-regular fa-envelope"></i></span>
-            <p class="text-dark">example@gmail.com</p>
+            <p class="text-dark">misingautonomouscouncil@gmail.com</p>
         </div>
     </div>
 </div>
