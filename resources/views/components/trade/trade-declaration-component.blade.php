@@ -43,7 +43,7 @@
                     to cancelation of my
                     trade license.</li>
                 <li class="">5. The given information are true to my best knowledge and belief.</li>
-                <li class="">6. I will pay the application fee of ₹100.</li>
+                <li class="">6. I will pay the application fee of ₹600.</li>
             </p>
         </div>
     </div>

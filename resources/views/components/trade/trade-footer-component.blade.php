@@ -5,7 +5,7 @@
             <p>Govt. of Assam</p>
             <p>Office of the Principal Secretary</p>
             <p>Mising Autonomous Council</p>
-            <p>Gogamukh => Dhemaji Assam</p>
+            <p>Gogamukh Dhemaji Assam</p>
             <p>Pin: 787034</p>
         </div>
         <div class="d-flex flex-wrap col-md-5 col-11 justify-content-center footer-div-1">

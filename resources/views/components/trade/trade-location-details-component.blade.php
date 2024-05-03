@@ -5,8 +5,8 @@
     </div>
     <div class="d-flex flex-wrap add-trade-form-body col-12">
         <div class="d-flex flex-wrap col-11 col-md-3 add-trade-form-body-1 ">
-            <p class="col-12">Contituency Name</p>
-            <select class="col-12 trade-input-name" name="contituency_name">
+            <p class="col-12">Constituency Name</p>
+            <select class="col-12 trade-input-name" name="constituency_name">
                 <option value="" selected disabled>Select Constituency</option>
                 <option value="">Lali</option>
                 <option value="">Murkongselek</option>
