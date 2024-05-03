@@ -7,7 +7,5 @@
     <div class="" style="height: calc(340px);"">
 
     </div>
-    <div class="d-flex flex-wrap main-trade-links-div">
-        <a href="/add-trade"><i class="fa-solid fa-plus"></i> Apply For New Trade License</a>
-    </div>
+    <x-trade.main-trade-links-component></x-trade.main-trade-links-component>
 @endsection
