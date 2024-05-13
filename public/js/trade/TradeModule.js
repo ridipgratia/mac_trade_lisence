@@ -4,8 +4,8 @@ class TradeModule {
     //     address_document: null
     // }
     constructor() {
-        this.identity_document = null;
-        this.address_document = null;
+        this.identity_document = '';
+        this.address_document = '';
     }
     async handleFiles(files) {
         var file = files[0];
@@ -112,7 +112,7 @@ class TradeModule {
             }
         }
         if (check_validate) {
-            if (!this.identity_document) {
+            if (!this.identity_document == '') {
                 $(".trade_document_error")
                     .eq(0)
                     .html("Identity Proof is required field");
@@ -120,7 +120,7 @@ class TradeModule {
             } else {
                 check_validate = true;
             }
-            if (!this.address_document) {
+            if (this.address_document == '') {
                 $(".trade_document_error")
                     .eq(1)
                     .html("Address Proof is required field");
@@ -139,6 +139,7 @@ class TradeModule {
                     ).then(() => {
                         location.reload("/");
                     });
+                    return true;
                 } else {
                     Swal.fire(
                         "information",
@@ -155,6 +156,7 @@ class TradeModule {
                 "fast"
             );
         }
+        return false;
     }
     async checkData() {
         console.log(this.identity_document);
@@ -181,6 +183,39 @@ class TradeModule {
         } else {
             $(".trade-contact-error").eq(0).html("Enter a phone number !");
         }
+    }
+    async addTrade(form) {
+        var form_data = new FormData(form[0]);
+        form_data.append('identity_proof', this.identity_document);
+        form_data.append('address_proof', this.address_document);
+        await $.ajax({
+            type: "post",
+            url: '/add-trade-post',
+            headers: {
+                'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: form_data,
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                $('.trade_error').html('');
+                if (response.res_data.error_step == 1) {
+                    for (var i = 0; i < $('.trade-input-name').length; i++) {
+                        response.res_data.message.forEach(mes => {
+                            if (mes.indexOf($('.trade-input-name').eq(i).attr('name').replaceAll('_', ' ')) !== -1) {
+                                $('.trade_error').eq(i).html(mes);
+                            }
+                        });
+                    }
+                } else {
+                    console.log(response);
+                }
+                console.log(response);
+            }, error: function (data) {
+                console.log(data);
+            }
+        });
     }
 }
 export default TradeModule;

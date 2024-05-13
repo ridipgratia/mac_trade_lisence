@@ -11,9 +11,10 @@ class TradeDetailsComponent extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $tradeDetailsExtra;
+    public function __construct($tradeDetailsExtra)
     {
-        //
+        $this->tradeDetailsExtra = $tradeDetailsExtra;
     }
 
     /**

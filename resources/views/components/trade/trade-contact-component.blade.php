@@ -21,8 +21,7 @@
             <p class="col-12">Enter Your OTP</p>
             <div class="d-flex flex-wrap col-12 add-trade-contact">
                 <div class="d-flex flex-wrap col-md-8 col-12">
-                    <input type="number" name="mobile_number" class="col-12" id="trade-contact-otp"
-                        placeholder="Enter OTP">
+                    <input type="number" name="" class="col-12" id="trade-contact-otp" placeholder="Enter OTP">
                     <p class="trade-contact-error"></p>
                 </div>
                 <button type="button" class="add-trade-contact-btn" id="send_trade_otp_verify">Verify OTP</button>

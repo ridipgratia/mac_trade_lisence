@@ -33,7 +33,9 @@ $(document).ready(function () {
     // -------------- submit trade details ----------------
     $(document).on('submit', '#add-trade-form', async function (e) {
         e.preventDefault();
-        trade_module.validateAllField();
+        // var check_validation = await trade_module.validateAllField();
+        trade_module.addTrade($('#add-trade-form'));
+        // console.log(check_validation);
     });
     // --------------- check phone number for otp -----------------
     $(document).on('click', '#send_trade_otp', function () {

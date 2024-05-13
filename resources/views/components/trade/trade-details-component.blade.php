@@ -7,11 +7,10 @@
         <div class="d-flex flex-wrap col-11 col-md-3 add-trade-form-body-1 ">
             <p class="col-12">License Type</p>
             <select class="col-12 trade-input-name" name="license_type">
-                <option value="1" selected disabled>Select</option>
-                <option value="2">General Trade License</option>
-                <option value="3">Health Trade License</option>
-                <option value="4">Veterinary License</option>
-                <option value="5">Slow Moving Vehicle</option>
+                <option selected disabled>Select</option>
+                @foreach ($tradeDetailsExtra['license_type'] as $license_type)
+                    <option value="{{ $license_type->id }}">{{ $license_type->license_type }}</option>
+                @endforeach
             </select>
             <p class="trade_error"></p>
         </div>
@@ -23,11 +22,10 @@
         <div class="d-flex flex-wrap col-11 col-md-3 add-trade-form-body-1">
             <p class="col-12">Annual Income From Trade (in Rs.)</p>
             <select class="col-12 trade-input-name" name="anual_income">
-                <option value="1" selected disabled>Select</option>
-                <option value="2">Below 5 Lakh</option>
-                <option value="3">5 Lakh to 10 Lakh</option>
-                <option value="4">10 Lakh to 20 Lakh</option>
-                <option value="5">20 Lakh and Above</option>
+                <option selected disabled>Select</option>
+                @foreach ($tradeDetailsExtra['annual_income'] as $annual_income)
+                    <option value="{{ $annual_income->id }}">{{ $annual_income->anual_income }}</option>
+                @endforeach
             </select>
             <p class="trade_error"></p>
         </div>

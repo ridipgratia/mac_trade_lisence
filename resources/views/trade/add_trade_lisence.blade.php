@@ -8,14 +8,22 @@
         <div class="col-11 add-trade-back-div">
             <a href="/"><span><i class="fa-solid fa-house"></i></span> Home</a>
         </div>
-        <form action="" id="add-trade-form" class="d-flex flex-wrap col-11">
+        <form action="" id="add-trade-form" class="d-flex flex-wrap col-11" enctype="multipart/form-data">
             @csrf
             {{-- ------------------- trade owner persoanl details -------------------- --}}
             <x-trade.trade-owner-details-conponent></x-trade.trade-owner-details-conponent>
             {{-- --------------- trade  location details -------------------- --}}
             <x-trade.trade-location-details-component></x-trade.trade-location-details-component>
             {{-- ------------------ trade details -------------- --}}
-            <x-trade.trade-details-component></x-trade.trade-details-component>
+            @php
+                $trade_details_extra = [
+                    'license_type' => $license_type,
+                    'annual_income' => $annual_income,
+                ];
+            @endphp
+            <x-trade.trade-details-component :tradeDetailsExtra=$trade_details_extra>
+
+            </x-trade.trade-details-component>
             {{-- ---------------- trade contact details ---------------- --}}
             <x-trade.trade-contact-component></x-trade.trade-contact-component>
             {{-- ------------------- trade identify --------------- --}}
