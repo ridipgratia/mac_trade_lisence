@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('verified_mobile', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('trade_id');
+            $table->bigInteger('phone_number')->unique();
             $table->timestamps();
         });
     }

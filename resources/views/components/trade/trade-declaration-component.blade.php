@@ -48,7 +48,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-center m-2">
-        <input class="submit" type="submit" value="submit & pay">
+        <input class="submit" type="submit" value="submit & pay" id="new-trade-btn">
     </div>
 
 </div>

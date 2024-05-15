@@ -33,8 +33,10 @@ $(document).ready(function () {
     // -------------- submit trade details ----------------
     $(document).on('submit', '#add-trade-form', async function (e) {
         e.preventDefault();
-        // var check_validation = await trade_module.validateAllField();
-        trade_module.addTrade($('#add-trade-form'));
+        var check_validation = await trade_module.validateAllField();
+        if (check_validation) {
+            trade_module.addTrade($('#add-trade-form'));
+        }
         // console.log(check_validation);
     });
     // --------------- check phone number for otp -----------------

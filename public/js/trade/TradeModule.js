@@ -112,7 +112,7 @@ class TradeModule {
             }
         }
         if (check_validate) {
-            if (!this.identity_document == '') {
+            if (this.identity_document == '') {
                 $(".trade_document_error")
                     .eq(0)
                     .html("Identity Proof is required field");
@@ -132,20 +132,9 @@ class TradeModule {
             // $('.trade_document_error').eq(1).html(this.address_document ? ('', check_validate = "") : "Address Proof is required field !", check_validate = false);
             if (check_validate) {
                 if ($("#trade-checkout").is(":checked")) {
-                    Swal.fire(
-                        "Success",
-                        "Form successfully submitted",
-                        "success"
-                    ).then(() => {
-                        location.reload("/");
-                    });
-                    return true;
+                    check_validate = true;
                 } else {
-                    Swal.fire(
-                        "information",
-                        "Please check the declaration box",
-                        "info"
-                    );
+                    check_validate = false;
                 }
             }
         } else {
@@ -156,7 +145,7 @@ class TradeModule {
                 "fast"
             );
         }
-        return false;
+        return check_validate;
     }
     async checkData() {
         console.log(this.identity_document);
@@ -167,6 +156,21 @@ class TradeModule {
         if (number != "") {
             var regex = /^\d{10}$/;
             if (regex.test(number)) {
+                $.ajax({
+                    type: "post",
+                    url: "/verify-phone-number",
+                    headers: {
+                        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data: {
+                        phone_number: number
+                    },
+                    success: function (response) {
+                        console.log(response);
+                    }, error: function (data) {
+                        console.log(data);
+                    }
+                });
                 $('.trade-otp-div').eq(0).attr({
                     'style': 'display:flex !important'
                 });
@@ -188,6 +192,7 @@ class TradeModule {
         var form_data = new FormData(form[0]);
         form_data.append('identity_proof', this.identity_document);
         form_data.append('address_proof', this.address_document);
+        $('#new-trade-btn').html(`<i class="fa fa-spinner fa-spin"></i>`);
         await $.ajax({
             type: "post",
             url: '/add-trade-post',
@@ -209,13 +214,29 @@ class TradeModule {
                         });
                     }
                 } else {
-                    console.log(response);
+                    if (response.res_data.status == 400) {
+                        Swal.fire(
+                            'info',
+                            response.res_data.message,
+                            'success'
+                        );
+                    } else {
+                        // Swal.fire(
+                        //     'success',
+                        //     response.res_data.message,
+                        //     'success'
+                        // ).then(() => {
+                        //     location.reload('/');
+                        // });
+                        console.log(response.res_data.message);
+                    }
                 }
                 console.log(response);
             }, error: function (data) {
                 console.log(data);
             }
         });
+        $('#new-trade-btn').html(`submit & pay`);
     }
 }
 export default TradeModule;
