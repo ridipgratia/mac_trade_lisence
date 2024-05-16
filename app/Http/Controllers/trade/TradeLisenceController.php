@@ -10,6 +10,7 @@ use App\Mymodules\MyModules;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class TradeLisenceController extends Controller
@@ -57,7 +58,7 @@ class TradeLisenceController extends Controller
                     'license_type' => 'required|integer',
                     'nature_of_trade' => 'required',
                     'anual_income' => 'required|integer',
-                    'mobile_number' => 'required|regex:/^\d{10}$/',
+                    'mobile_number' => 'required|integer|regex:/^\d{10}$/',
                     'aadhaar_no' => 'required',
                     'pan_no' => 'required',
                     'identity_proof' => 'required|max:3000|mimes:pdf',
@@ -137,19 +138,103 @@ class TradeLisenceController extends Controller
                 'status' => 400,
                 'message' => ''
             ];
-            $check_verify_number = MyModules::checkVerifyNumberExists($request->phone_number);
-            if ($check_verify_number !== false) {
-                if ($check_verify_number == 0) {
-                } else {
-                    $res_data['message'] = "Phone number already veryfied !";
-                }
+            $error_message = [
+                'required' => ':attribute is required field !',
+                'integer' => ':attribute is integer only value',
+                'regex' => 'Enter a valid :attribute',
+            ];
+            $validation = Validator::make(
+                $request->all(),
+                [
+                    'phone_number' => 'required|integer|regex:/^\d{10}$/'
+                ],
+                $error_message
+            );
+            if ($validation->fails()) {
+                $res_data['message'] = $validation->errors()->all();
             } else {
-                $res_data['message'] = "Server error please try later !";
+                $check_verify_number = MyModules::checkVerifyNumberExists($request->phone_number);
+                if ($check_verify_number !== false) {
+                    if ($check_verify_number == 0) {
+                        $verify_code = rand(1000, 9999);
+                        Session::put('phone_verify_code', $verify_code);
+                        Session::put('verify_phone_number', $request->phone_number);
+                        $res_data['message'] = "Please check your phone for otp";
+                        $res_data['status'] = 200;
+                    } else {
+                        $res_data['message'] = "Phone number already veryfied !";
+                    }
+                } else {
+                    $res_data['message'] = "Server error please try later !";
+                }
             }
             return response()->json(['res_data' => $res_data]);
         }
     }
-
+    // ---------------------- verifyed phone number -------------------------
+    public function verifyedPhoneNumber(Request $request)
+    {
+        if ($request->ajax()) {
+            $res_data = [
+                'message' => '',
+                'status' => 400,
+                'error_step' => -1,
+                'otp' => ''
+            ];
+            $error_message = [
+                'required' => ':attribute is required field !',
+                'integer' => ':attribute is integer only value',
+                'regex' => 'Enter a valid :attribute',
+            ];
+            $validation = Validator::make(
+                $request->all(),
+                [
+                    'mobile_number' => 'required|integer|regex:/^\d{10}$/',
+                    'verify_code' => 'required|integer'
+                ],
+                $error_message
+            );
+            $res_data['otp'] = Session::get('phone_verify_code');
+            if ($validation->fails()) {
+                $res_data['message'] = $validation->errors()->all();
+                $res_data['error_step'] = 1;
+            } else {
+                $session_phone = Session::get('verify_phone_number');
+                $session_code = Session::get('phone_verify_code');
+                if ($request->mobile_number == $session_phone) {
+                    if ($request->verify_code == $session_code) {
+                        $check_verify_number = MyModules::checkVerifyNumberExists($session_phone);
+                        if ($check_verify_number !== false) {
+                            if ($check_verify_number == 0) {
+                                try {
+                                    DB::table('verified_mobile')
+                                        ->insert([
+                                            'phone_number' => $session_phone
+                                        ]);
+                                    Session::forget('verify_phone_number');
+                                    Session::forget('phone_verify_code');
+                                    $res_data['message'] = "Verifycation is completed !";
+                                    $res_data['status'] = 200;
+                                } catch (Exception $err) {
+                                    $res_data['message'] = $err;
+                                }
+                            } else {
+                                $res_data['message'] = "Mobile number is already exists !";
+                            }
+                        } else {
+                            $res_data['message'] = "Server error please try later";
+                        }
+                    } else {
+                        $res_data['message'] = "Verify code is not currect !";
+                    }
+                } else {
+                    $res_data['message'] = "Your mobile number is not valid !";
+                }
+                $res_data['error_step'] = 2;
+            }
+            return response()->json(['res_data' => $res_data]);
+        }
+    }
     // ----------------------- tempory method ----------------
     public function tempFile(Request $request)
     {

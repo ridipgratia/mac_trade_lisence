@@ -10,8 +10,8 @@
                 communication.</span>
             <div class="d-flex flex-wrap col-12 add-trade-contact">
                 <div class="d-flex flex-wrap col-md-8 col-12">
-                    <input type="number" name="mobile_number" class="col-12 trade-input-name" id="trade-content-phone"
-                        placeholder="mobile number">
+                    <input type="number" name="mobile_number" class="col-12 trade-input-name trade-contact-input"
+                        id="trade-content-phone" placeholder="mobile number">
                     <p class="trade_error trade-contact-error"></p>
                 </div>
                 <button type="button" class="add-trade-contact-btn" id="send_trade_otp">Send OTP</button>
@@ -21,7 +21,8 @@
             <p class="col-12">Enter Your OTP</p>
             <div class="d-flex flex-wrap col-12 add-trade-contact">
                 <div class="d-flex flex-wrap col-md-8 col-12">
-                    <input type="number" name="" class="col-12" id="trade-contact-otp" placeholder="Enter OTP">
+                    <input type="number" name="verify_code" class="col-12 trade-contact-input" id="trade-contact-otp"
+                        placeholder="Enter OTP">
                     <p class="trade-contact-error"></p>
                 </div>
                 <button type="button" class="add-trade-contact-btn" id="send_trade_otp_verify">Verify OTP</button>

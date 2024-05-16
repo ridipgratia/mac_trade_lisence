@@ -153,10 +153,12 @@ class TradeModule {
     }
     // check phone number for otp send ------------------
     async checkTradePhone(number) {
+        $('#send_trade_otp').html(`<i class="fa fa-spinner fa-spin"></i>`)
+        $('#send_trade_otp').attr('disabled', true);
         if (number != "") {
             var regex = /^\d{10}$/;
             if (regex.test(number)) {
-                $.ajax({
+                await $.ajax({
                     type: "post",
                     url: "/verify-phone-number",
                     headers: {
@@ -166,27 +168,84 @@ class TradeModule {
                         phone_number: number
                     },
                     success: function (response) {
-                        console.log(response);
+                        console.log(response.res_data);
+                        if (response.res_data.status == 200) {
+                            $(".trade-contact-error").eq(0).html(response.res_data.message);
+                            $('.trade-otp-div').eq(0).attr({
+                                'style': 'display:flex !important'
+                            });
+                        } else {
+                            $(".trade-contact-error").eq(0).html(response.res_data.message);
+                        }
                     }, error: function (data) {
                         console.log(data);
                     }
                 });
-                $('.trade-otp-div').eq(0).attr({
-                    'style': 'display:flex !important'
-                });
-                $('#send_trade_otp').html(`<i class="fa fa-spinner fa-spin"></i>`)
-                $('#send_trade_otp').attr('disabled', true);
-                $(".trade-contact-error").eq(0).html("");
-                setTimeout(function () {
-                    $('#send_trade_otp').html(`Send OTP`);
-                    $('#send_trade_otp').attr('disabled', false);
-                }, 1000)
+                // setTimeout(function () {
+                //     $('#send_trade_otp').html(`Send OTP`);
+                //     $('#send_trade_otp').attr('disabled', false);
+                // }, 1000)
             } else {
                 $(".trade-contact-error").eq(0).html("Enter a valid phone number !");
             }
         } else {
             $(".trade-contact-error").eq(0).html("Enter a phone number !");
         }
+        $('#send_trade_otp').html(`Send OTP`);
+        $('#send_trade_otp').attr('disabled', false);
+    }
+    // ----------------------- verify phone number-----------------
+    async verifyTradePhone() {
+        var otp = $('#trade-contact-otp').val();
+        var phone_number = $('#trade-content-phone').val();
+        $('#send_trade_otp_verify').html(`<i class="fa fa-spinner fa-spin"></i>`);
+        $('#send_trade_otp_verify').attr('disabled', true);
+        $('.trade-contact-error').html('');
+        $(".trade-contact-error").removeClass('trade-contact-success');
+        var check = false;
+        if (otp != "") {
+            var regex = /^\d{10}$/;
+            if (phone_number != "" && regex.test(phone_number)) {
+                await $.ajax({
+                    type: "post",
+                    url: "/verifyed-phone-number",
+                    headers: {
+                        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data: {
+                        verify_code: otp,
+                        mobile_number: phone_number
+                    },
+                    success: function (response) {
+                        console.log(response.res_data);
+                        if (response.res_data.error_step == 1) {
+                            for (var i = 0; i < $('.trade-contact-input').length; i++) {
+                                response.res_data.message.forEach(mes => {
+                                    if (mes.indexOf($('.trade-contact-input').eq(i).attr('name').replaceAll('_', ' ')) !== -1) {
+                                        $('.trade-contact-error').eq(i).html(mes);
+                                    }
+                                });
+                            }
+                        } else {
+                            if (response.res_data.status == 200) {
+                                $(".trade-contact-error").eq(1).html(response.res_data.message);
+                                $(".trade-contact-error").addClass('trade-contact-success');
+                            } else {
+                                $(".trade-contact-error").eq(1).html(response.res_data.message);
+                            }
+                        }
+                    }, error: function (data) {
+                        console.log(data);
+                    }
+                });
+            } else {
+                $(".trade-contact-error").eq(1).html("please enter your valid phone number ");
+            }
+        } else {
+            $(".trade-contact-error").eq(1).html("Please enter your OTP");
+        }
+        $('#send_trade_otp_verify').html(check == true ? `Done` : "Verify OTP");
+        $('#send_trade_otp_verify').attr('disabled', false);
     }
     async addTrade(form) {
         var form_data = new FormData(form[0]);

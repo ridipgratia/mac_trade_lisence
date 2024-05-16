@@ -46,9 +46,6 @@ $(document).ready(function () {
     });
     // -----------------verify otp -----------------------
     $(document).on('click', '#send_trade_otp_verify', function () {
-        var otp = $('#trade-contact-otp').val();
-        if (otp) {
-            $('#send_trade_otp_verify').html(`<i class="fa fa-spinner fa-spin"></i>`);
-        }
+        trade_module.verifyTradePhone();
     })
 });

@@ -125,10 +125,16 @@ textarea {
     border: 2px dotted #007bff;
 }
 
-.trade_error {
+.trade_error,
+.trade-contact-error,
+.trade-contact-success {
     color: red;
     font-size: 13px !important;
     text-transform: capitalize;
+}
+
+.trade-contact-success {
+    color: green;
 }
 
 .add-trade-contact {
