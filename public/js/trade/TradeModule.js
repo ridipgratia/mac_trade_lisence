@@ -248,6 +248,7 @@ class TradeModule {
         $('#send_trade_otp_verify').attr('disabled', false);
     }
     async addTrade(form) {
+        console.log(this.identity_document)
         var form_data = new FormData(form[0]);
         form_data.append('identity_proof', this.identity_document);
         form_data.append('address_proof', this.address_document);
@@ -274,10 +275,11 @@ class TradeModule {
                     }
                 } else {
                     if (response.res_data.status == 400) {
+                        console.log(response.res_data.message);
                         Swal.fire(
                             'info',
                             response.res_data.message,
-                            'success'
+                            'info'
                         );
                     } else {
                         // Swal.fire(

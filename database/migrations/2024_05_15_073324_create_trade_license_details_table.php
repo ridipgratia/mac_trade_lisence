@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('trade_name');
             $table->string('present_address');
             $table->string('permanent_address');
-            $table->bigInteger('phone_number')->unique();
+            $table->bigInteger('phone_number');
             $table->integer('constituency_id');
             $table->integer('block_id');
             $table->integer('panchayat_id');

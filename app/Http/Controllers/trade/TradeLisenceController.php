@@ -114,7 +114,7 @@ class TradeLisenceController extends Controller
                                 MyModules::deleteFolder($save_data->id . '/new_trade');
                             }
                             $res_data['error_step'] = 2;
-                            $res_data['message'] = "Server error please try later !";
+                            $res_data['message'] = $err;
                         }
                     } else {
                         $res_data['error_step'] = 2;
